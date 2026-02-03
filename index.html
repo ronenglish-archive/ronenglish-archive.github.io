@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ron English Archive</title>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#4b5563;
+      --border:#e5e7eb;
+      --card:#ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.35;
+    }
+
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+
+    header{
+      padding: 20px 0 18px;
+    }
+
+    .kicker{
+      color:var(--muted);
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    h1{
+      font-size: clamp(36px, 5vw, 64px);
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .sub{
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .hero{
+      margin-top: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #f3f4f6;
+      position: relative;
+    }
+
+    .hero img{
+      width: 100%;
+      height: min(52vh, 520px);
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.02);
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.0) 45%, rgba(0,0,0,.62) 100%);
+      pointer-events:none;
+    }
+
+    .hero-caption{
+      position:absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 14px;
+      color:#fff;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .hero-caption strong{
+      font-size: 16px;
+      letter-spacing: .01em;
+    }
+
+    .hero-caption span{
+      font-size: 14px;
+      opacity: .9;
+    }
+
+    .grid{
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card{
+      grid-column: span 12;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+      border-color: #d1d5db;
+    }
+
+    .card-inner{
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      min-height: 220px;
+    }
+
+    .card-media{
+      background:#f3f4f6;
+      border-right: 1px solid var(--border);
+    }
+
+    .card-media img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .card-body{
+      padding: 18px 18px 16px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-title{
+      font-size: 22px;
+      margin: 0 0 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc{
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 60ch;
+    }
+
+    .pillrow{
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .pill{
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 14px;
+      color: #111;
+      background: #fff;
+    }
+
+    .cta{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 650;
+      letter-spacing: .01em;
+      margin-top: 12px;
+    }
+
+    .arrow{
+      display:inline-block;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      line-height: 32px;
+      text-align:center;
+      font-size: 18px;
+      background:#fff;
+    }
+
+    .footer{
+      margin-top: 28px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      display:flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer a{
+      color: inherit;
+    }
+
+    @media (max-width: 860px){
+      .card-inner{ grid-template-columns: 1fr; }
+      .card-media{ border-right: none; border-bottom: 1px solid var(--border); }
+      .hero img{ height: 360px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Public research archive</p>
+      <h1>Ron English Archive</h1>
+      <p class="sub">
+        A public, evolving scholarly record of paintings, works on paper, and archival documentation of exhibitions, murals, and public works.
+      </p>
+    </header>
+
+    <!-- HERO IMAGE
+         Step later: we’ll replace these placeholder images with your own files.
+         For now this uses a simple placeholder so the layout works immediately. -->
+    <section class="hero" aria-label="Featured image">
+      <img src="https://picsum.photos/seed/ronenglish-hero/1600/900" alt="Featured image placeholder" />
+      <div class="hero-overlay"></div>
+      <div class="hero-caption">
+        <strong>Explore the archive</strong>
+        <span>Catalogue raisonné + exhibitions, murals, and public record</span>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Archive sections">
+      <!-- CATALOGUE RAISONNÉ -->
+      <a class="card" href="https://ronenglish-archive.github.io/ron-english-catalogue-raisonne/">
+        <div class="card-inner">
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/ronenglish-catalogue/1200/900" alt="Catalogue section placeholder image" />
+          </div>
+          <div class="card-body">
+            <div>
+              <h2 class="card-title">Catalogue Raisonné</h2>
+              <p class="card-desc">
+                Paintings and works on paper, organized for long-term reference and citation.
+              </p>
+              <div class="pillrow" aria-label="Catalogue topics">
+                <span class="pill">Works on paper</span>
+                <span class="pill">Paintings</span>
+                <span class="pill">By decade</span>
+                <span class="pill">Warholesque</span>
+              </div>
+            </div>
+            <div class="cta">
+              <span class="arrow">→</span>
+              <span>Enter the catalogue</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- POPAGANDA ARCHIVE -->
+      <a class="card" href="https://ronenglish-archive.github.io/Ron-English-PoPaganda-Archive/">
+        <div class="card-inner">
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/ronenglish-popaganda/1200/900" alt="PoPaganda section placeholder image" />
+          </div>
+          <div class="card-body">
+            <div>
+              <h2 class="card-title">PoPaganda Archive</h2>
+              <p class="card-desc">
+                Exhibitions, murals, public appearances, ephemera, and archival context.
+              </p>
+              <div class="pillrow" aria-label="PoPaganda topics">
+                <span class="pill">Exhibitions</span>
+                <span class="pill">Murals</span>
+                <span class="pill">Public works</span>
+                <span class="pill">Ephemera</span>
+              </div>
+            </div>
+            <div class="cta">
+              <span class="arrow">→</span>
+              <span>Browse the archive</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <div class="footer">
+      <div>
+        Maintained in the <a href="https://github.com/ronenglish-archive">ronenglish-archive</a> organization.
+      </div>
+      <div>
+        This site is published via GitHub Pages for long-term public access.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
