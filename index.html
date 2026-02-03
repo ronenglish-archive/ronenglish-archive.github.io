@@ -17,6 +17,7 @@
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -44,18 +45,19 @@
     }
 
     h1{
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(40px, 5vw, 68px);
       margin: 0 0 10px;
       letter-spacing: -0.02em;
     }
 
     .sub{
-      max-width: 70ch;
+      max-width: 72ch;
       color: var(--muted);
-      font-size: 18px;
+      font-size: 19px;
       margin: 0;
     }
 
+    /* HERO */
     .hero{
       margin-top: 22px;
       border: 1px solid var(--border);
@@ -68,7 +70,7 @@
 
     .hero img{
       width: 100%;
-      height: min(52vh, 520px);
+      height: min(52vh, 540px);
       object-fit: cover;
       display: block;
       filter: contrast(1.02);
@@ -94,15 +96,16 @@
     }
 
     .hero-caption strong{
-      font-size: 16px;
+      font-size: 18px;
       letter-spacing: .01em;
     }
 
     .hero-caption span{
-      font-size: 14px;
-      opacity: .9;
+      font-size: 15px;
+      opacity: .92;
     }
 
+    /* GRID */
     .grid{
       margin-top: 26px;
       display: grid;
@@ -130,9 +133,9 @@
 
     .card-inner{
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.15fr 1fr;
       gap: 0;
-      min-height: 220px;
+      min-height: 240px;
     }
 
     .card-media{
@@ -148,73 +151,83 @@
     }
 
     .card-body{
-      padding: 18px 18px 16px;
+      padding: 20px 20px 18px;
       display:flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 12px;
+      gap: 14px;
     }
 
     .card-title{
-      font-size: 22px;
-      margin: 0 0 6px;
+      font-size: 24px;
+      margin: 0 0 8px;
       letter-spacing: -0.01em;
     }
 
     .card-desc{
       margin: 0;
       color: var(--muted);
-      font-size: 16px;
+      font-size: 17px;
       max-width: 60ch;
     }
 
-    .pillrow{
-      display:flex;
-      gap:10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .pill{
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 14px;
-      color: #111;
-      background: #fff;
-    }
-
+    /* CTA: bigger + more noticeable */
     .cta{
       display:flex;
       align-items:center;
-      gap: 10px;
-      font-weight: 650;
+      gap: 12px;
+      font-weight: 800;
       letter-spacing: .01em;
-      margin-top: 12px;
+      margin-top: 14px;
+      font-size: 18px;
     }
 
     .arrow{
       display:inline-block;
       border: 1px solid var(--border);
       border-radius: 999px;
-      width: 34px;
-      height: 34px;
-      line-height: 32px;
+      width: 40px;
+      height: 40px;
+      line-height: 38px;
       text-align:center;
-      font-size: 18px;
+      font-size: 20px;
       background:#fff;
     }
 
+    /* 2x2 image grid for catalogue card */
+    .catalog-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 6px;
+      width: 100%;
+      height: 100%;
+      padding: 12px;
+    }
+
+    .catalog-grid img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* FOOTER: prevent “skinny column” look */
     .footer{
       margin-top: 28px;
       border-top: 1px solid var(--border);
       padding-top: 18px;
       color: var(--muted);
-      font-size: 14px;
-      display:flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      font-size: 15px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+      align-items: start;
+    }
+
+    .footer > div{
+      min-width: 0;
     }
 
     .footer a{
@@ -225,29 +238,9 @@
       .card-inner{ grid-template-columns: 1fr; }
       .card-media{ border-right: none; border-bottom: 1px solid var(--border); }
       .hero img{ height: 360px; }
+      .footer{ grid-template-columns: 1fr; }
     }
   </style>
-
-<style>
-  .catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 6px;
-    width: 100%;
-    height: 100%;
-  }
-
-  .catalog-grid img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 6px;
-  }
-</style>
-
-  
 </head>
 
 <body>
@@ -260,68 +253,66 @@
       </p>
     </header>
 
-<!-- HERO IMAGE -->
-<section class="hero" aria-label="Featured image">
-  <img src="hero.jpg" alt="Ron English, Delusionville Manifesto">
-  <div class="hero-overlay"></div>
-  <div class="hero-caption">
-    <strong>Explore the archive</strong>
-    <span>Catalogue raisonné + exhibitions, murals, and public record</span>
-  </div>
-</section>
-
-
-<section class="grid" aria-label="Archive sections">
-  <!-- CATALOGUE RAISONNÉ -->
-  <a class="card" href="https://ronenglish-archive.github.io/ron-english-catalogue-raisonne/">
-    <div class="card-inner">
-      <div class="card-media">
-<div class="catalog-grid">
-  <img src="catalog-early.jpg" alt="Early work">
-  <img src="catalog-pop.jpg" alt="Pop painting">
-  <img src="catalog-concept.jpg" alt="Conceptual work">
-  <img src="catalog-paper.jpg" alt="Work on paper">
-</div>
-
+    <!-- HERO IMAGE -->
+    <section class="hero" aria-label="Featured image">
+      <img src="hero.jpg" alt="Ron English, Delusionville Manifesto">
+      <div class="hero-overlay"></div>
+      <div class="hero-caption">
+        <strong>Explore the archive</strong>
+        <span>Catalogue raisonné + exhibitions, murals, and public record</span>
       </div>
-      <div class="card-body">
-        <div>
-          <h2 class="card-title">Catalogue Raisonné</h2>
-          <p class="card-desc">
-            Paintings and works on paper, organized for long-term reference and citation.
-          </p>
-         
+    </section>
+
+    <section class="grid" aria-label="Archive sections">
+
+      <!-- CATALOGUE RAISONNÉ -->
+      <a class="card" href="https://ronenglish-archive.github.io/ron-english-catalogue-raisonne/">
+        <div class="card-inner">
+          <div class="card-media">
+            <div class="catalog-grid">
+              <img src="catalog-early.jpg" alt="Early work">
+              <img src="catalog-pop.jpg" alt="Pop painting">
+              <img src="catalog-concept.jpg" alt="Conceptual work">
+              <img src="catalog-paper.jpg" alt="Work on paper">
+            </div>
+          </div>
+          <div class="card-body">
+            <div>
+              <h2 class="card-title">Catalogue Raisonné</h2>
+              <p class="card-desc">
+                Paintings and works on paper, organized for long-term reference and citation.
+              </p>
+            </div>
+            <div class="cta">
+              <span class="arrow">→</span>
+              <span>Enter the catalogue</span>
+            </div>
+          </div>
         </div>
-        <div class="cta">
-          <span class="arrow">→</span>
-          <span>Enter the catalogue</span>
+      </a>
+
+      <!-- POPAGANDA ARCHIVE -->
+      <a class="card" href="https://ronenglish-archive.github.io/Ron-English-PoPaganda-Archive/">
+        <div class="card-inner">
+          <div class="card-media">
+            <img src="popaganda.jpg" alt="Ron English murals and public works" />
+          </div>
+          <div class="card-body">
+            <div>
+              <h2 class="card-title">PoPaganda Archive</h2>
+              <p class="card-desc">
+                Exhibitions, murals, public appearances, ephemera, and archival context.
+              </p>
+            </div>
+            <div class="cta">
+              <span class="arrow">→</span>
+              <span>Browse the archive</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </a>
+      </a>
 
-<!-- POPAGANDA ARCHIVE -->
-<a class="card" href="https://ronenglish-archive.github.io/Ron-English-PoPaganda-Archive/">
-  <div class="card-inner">
-    <div class="card-media">
-      <img src="popaganda.jpg" alt="Ron English murals and public works" />
-    </div>
-    <div class="card-body">
-      <div>
-        <h2 class="card-title">PoPaganda Archive</h2>
-        <p class="card-desc">
-          Exhibitions, murals, public appearances, ephemera, and archival context.
-        </p>
- 
-      </div>
-      <div class="cta">
-        <span class="arrow">→</span>
-        <span>Browse the archive</span>
-      </div>
-    </div>
-  </div>
-</a>
-
+    </section>
 
     <div class="footer">
       <div>
