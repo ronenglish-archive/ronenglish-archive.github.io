@@ -171,6 +171,25 @@
       max-width: 60ch;
     }
 
+    /* title row to host badge */
+    .card-title-row{
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .badge{
+      display:inline-block;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #111;
+      white-space: nowrap;
+    }
+
     /* CTA: bigger + more noticeable */
     .cta{
       display:flex;
@@ -213,6 +232,33 @@
       border-radius: 10px;
     }
 
+    /* DISABLED (in-progress) card */
+    .card.is-disabled{
+      opacity: 0.74;
+      filter: grayscale(45%);
+      transform: none;
+    }
+
+    .card.is-disabled:hover{
+      transform: none;
+      box-shadow: var(--shadow);
+      border-color: var(--border);
+    }
+
+    .card.is-disabled,
+    .card.is-disabled *{
+      cursor: not-allowed;
+    }
+
+    .card.is-disabled .cta{
+      color: #6b7280;
+    }
+
+    .card.is-disabled .arrow{
+      background: #fff;
+      color: #6b7280;
+    }
+
     /* FOOTER: prevent “skinny column” look */
     .footer{
       margin-top: 28px;
@@ -239,6 +285,7 @@
       .card-media{ border-right: none; border-bottom: 1px solid var(--border); }
       .hero img{ height: 360px; }
       .footer{ grid-template-columns: 1fr; }
+      .card-title-row{ align-items: flex-start; }
     }
   </style>
 </head>
@@ -291,26 +338,29 @@
         </div>
       </a>
 
-      <!-- POPAGANDA ARCHIVE -->
-      <a class="card" href="https://ronenglish-archive.github.io/Ron-English-PoPaganda-Archive/">
+      <!-- POPAGANDA ARCHIVE (IN PROGRESS / DISABLED) -->
+      <div class="card is-disabled" aria-disabled="true">
         <div class="card-inner">
           <div class="card-media">
             <img src="popaganda.jpg" alt="Ron English murals and public works" />
           </div>
           <div class="card-body">
             <div>
-              <h2 class="card-title">PoPaganda Archive</h2>
+              <div class="card-title-row">
+                <h2 class="card-title">PoPaganda Archive</h2>
+                <span class="badge">In progress</span>
+              </div>
               <p class="card-desc">
                 Exhibitions, murals, public appearances, ephemera, and archival context.
               </p>
             </div>
-            <div class="cta">
+            <div class="cta" aria-hidden="true">
               <span class="arrow">→</span>
-              <span>Browse the archive</span>
+              <span>Coming soon — catalogue first</span>
             </div>
           </div>
         </div>
-      </a>
+      </div>
 
     </section>
 
