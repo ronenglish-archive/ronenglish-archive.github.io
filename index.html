@@ -224,12 +224,33 @@
       padding: 12px;
     }
 
+    /* LANDSCAPE-FRIENDLY TILE CROPS */
     .catalog-grid img{
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: cover;          /* fills tile */
+      object-position: center;    /* default framing */
       display: block;
       border-radius: 10px;
+    }
+
+    /* Optional: make the top row a bit taller (helps wide artworks read better) */
+    @media (min-width: 861px){
+      .catalog-grid{
+        grid-template-rows: 1.25fr 0.75fr;
+      }
+    }
+
+    /* Per-image framing: set focal point */
+    .catalog-grid img.focal-left{ object-position: left center; }
+    .catalog-grid img.focal-right{ object-position: right center; }
+    .catalog-grid img.focal-top{ object-position: center top; }
+    .catalog-grid img.focal-bottom{ object-position: center bottom; }
+
+    /* If you want LESS cropping for wide works, use "contain" + padding */
+    .catalog-grid img.contain{
+      object-fit: contain;
+      background: #f3f4f6;
     }
 
     /* FOOTER */
@@ -290,8 +311,9 @@
         <div class="card-inner">
           <div class="card-media">
             <div class="catalog-grid">
-              <img src="catalog-early.jpg" alt="Early work">
-              <img src="catalog-pop.jpg" alt="Pop painting">
+              <!-- If Cowgirl Guernica tiles are here, make them landscape-friendly: add contain or a focal class -->
+              <img src="catalog-early.jpg" alt="Early work" class="contain">
+              <img src="catalog-pop.jpg" alt="Pop painting" class="contain">
               <img src="catalog-concept.jpg" alt="Conceptual work">
               <img src="catalog-paper.jpg" alt="Work on paper">
             </div>
