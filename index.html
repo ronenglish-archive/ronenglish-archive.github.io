@@ -190,7 +190,7 @@
       white-space: nowrap;
     }
 
-    /* CTA: bigger + more noticeable */
+    /* CTA */
     .cta{
       display:flex;
       align-items:center;
@@ -232,9 +232,7 @@
       border-radius: 10px;
     }
 
-  
-
-    /* FOOTER: prevent “skinny column” look */
+    /* FOOTER */
     .footer{
       margin-top: 28px;
       border-top: 1px solid var(--border);
@@ -300,9 +298,12 @@
           </div>
           <div class="card-body">
             <div>
-              <h2 class="card-title">Catalogue Raisonné</h2>
+              <div class="card-title-row">
+                <h2 class="card-title">Catalogue Raisonné</h2>
+                <span class="badge">Actively Expanding</span>
+              </div>
               <p class="card-desc">
-                Paintings and works on paper, organized for long-term reference and citation.
+                A structured, citation-ready record of paintings and works on paper. New entries and verified documentation are added on a rolling basis.
               </p>
             </div>
             <div class="cta">
@@ -313,39 +314,40 @@
         </div>
       </a>
 
-<!-- POPAGANDA ARCHIVE (IN DEVELOPMENT) -->
-<a class="card" href="popaganda-archive.html">
-  <div class="card-inner">
-    <div class="card-media">
-      <img src="popaganda.jpg" alt="Ron English murals and public works" />
-    </div>
-    <div class="card-body">
-      <div>
-        <div class="card-title-row">
-          <h2 class="card-title">PoPaganda Archive</h2>
-          <span class="badge">In Development</span>
+      <!-- POPAGANDA ARCHIVE (IN DEVELOPMENT) -->
+      <a class="card" href="popaganda-archive.html">
+        <div class="card-inner">
+          <div class="card-media">
+            <img src="popaganda.jpg" alt="Ron English murals and public works" />
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h2 class="card-title">PoPaganda Archive</h2>
+                <span class="badge">In Development</span>
+              </div>
+              <p class="card-desc">
+                A comprehensive archive of exhibitions, murals, public interventions, collaborations, and related ephemera,
+                documenting the broader cultural footprint of Ron English’s PoPaganda practice.
+              </p>
+            </div>
+            <div class="cta">
+              <span class="arrow">→</span>
+              <span>About the archive · Target launch: June 2027</span>
+            </div>
+          </div>
         </div>
-        <p class="card-desc">
-          A comprehensive archive of exhibitions, murals, public interventions, collaborations, and related ephemera,
-          documenting the broader cultural footprint of Ron English’s PoPaganda practice.
-        </p>
-      </div>
-      <div class="cta" aria-hidden="true">
-        <span class="arrow">→</span>
-        <span>About the archive · Target launch: June 2027</span>
-      </div>
-    </div>
-  </div>
-</a>
+      </a>
 
     </section>
 
     <div class="footer">
       <div>
         Maintained in the <a href="https://github.com/ronenglish-archive">ronenglish-archive</a> organization.
+        Entries are published as documentation is verified and organized for reliable citation.
       </div>
       <div>
-        This site is published via GitHub Pages for public access.
+        Published via GitHub Pages for public access. Updates are released on a rolling basis as new material is processed.
       </div>
     </div>
   </div>
