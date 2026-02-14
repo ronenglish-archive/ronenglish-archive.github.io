@@ -3,328 +3,353 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cowgirl Hat – Warholesque – Ron English Catalogue Raisonné</title>
-
-  <link rel="stylesheet" href="../../css/styles.css" />
-
-  <!-- Machine-readable -->
-  <meta name="work-type" content="warholesque-series" />
+  <title>Ron English Archive</title>
 
   <style>
-    .variant-wrap { margin-bottom: 56px; }
-
-    .variant-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-      gap: 26px;
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#4b5563;
+      --border:#e5e7eb;
+      --card:#ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
     }
 
-    .variant-item {
-      text-align: center;
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.35;
     }
 
-    /* Make each thumb clickable */
-    .variant-link {
-      display: block;
-      border-radius: 10px;
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+
+    header{
+      padding: 20px 0 18px;
+    }
+
+    .kicker{
+      color:var(--muted);
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    h1{
+      font-size: clamp(40px, 5vw, 68px);
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .sub{
+      max-width: 72ch;
+      color: var(--muted);
+      font-size: 19px;
+      margin: 0;
+    }
+
+    /* HERO */
+    .hero{
+      margin-top: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
-    }
-    .variant-link:focus {
-      outline: 2px solid #111;
-      outline-offset: 3px;
+      box-shadow: var(--shadow);
+      background: #f3f4f6;
+      position: relative;
     }
 
-    .variant-item img {
+    .hero img{
       width: 100%;
-      aspect-ratio: 1 / 1;
+      height: min(52vh, 540px);
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.02);
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.0) 45%, rgba(0,0,0,.62) 100%);
+      pointer-events:none;
+    }
+
+    .hero-caption{
+      position:absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 14px;
+      color:#fff;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .hero-caption strong{
+      font-size: 18px;
+      letter-spacing: .01em;
+    }
+
+    .hero-caption span{
+      font-size: 15px;
+      opacity: .92;
+    }
+
+    /* GRID */
+    .grid{
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card{
+      grid-column: span 12;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+      border-color: #d1d5db;
+    }
+
+    .card-inner{
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 0;
+      min-height: 240px;
+    }
+
+    .card-media{
+      background:#f3f4f6;
+      border-right: 1px solid var(--border);
+    }
+
+    .card-media img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .card-body{
+      padding: 20px 20px 18px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .card-title{
+      font-size: 24px;
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc{
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 60ch;
+    }
+
+    /* title row to host badge */
+    .card-title-row{
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .badge{
+      display:inline-block;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #111;
+      white-space: nowrap;
+    }
+
+    /* CTA */
+    .cta{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      margin-top: 14px;
+      font-size: 18px;
+    }
+
+    .arrow{
+      display:inline-block;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      width: 40px;
+      height: 40px;
+      line-height: 38px;
+      text-align:center;
+      font-size: 20px;
+      background:#fff;
+    }
+
+    /* 2x2 image grid for catalogue card */
+    .catalog-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 6px;
+      width: 100%;
+      height: 100%;
+      padding: 12px;
+    }
+
+    .catalog-grid img{
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
       border-radius: 10px;
-      background: #f3f4f6;
     }
 
-    .variant-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin: 10px 0 0 0;
+    /* FOOTER */
+    .footer{
+      margin-top: 28px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+      align-items: start;
     }
 
-    /* ==========================
-       LIGHTBOX (page-local)
-       ========================== */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: rgba(0, 0, 0, 0.86);
-      z-index: 9999;
+    .footer > div{
+      min-width: 0;
     }
-    .lightbox.is-open {
-      display: flex;
+
+    .footer a{
+      color: inherit;
     }
-    .lightbox-card {
-      max-width: min(1100px, 96vw);
-      max-height: 92vh;
-      width: 100%;
-      position: relative;
-    }
-    .lightbox-img {
-      width: 100%;
-      max-height: 92vh;
-      object-fit: contain;
-      display: block;
-      border-radius: 12px;
-      background: #111;
-    }
-    .lightbox-bar {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 10px;
-      color: #fff;
-      font-size: 0.95rem;
-    }
-    .lightbox-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .lightbox-actions a,
-    .lightbox-actions button {
-      appearance: none;
-      border: 0;
-      background: rgba(255, 255, 255, 0.14);
-      color: #fff;
-      padding: 10px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: 600;
-      line-height: 1;
-    }
-    .lightbox-actions a:hover,
-    .lightbox-actions button:hover {
-      background: rgba(255, 255, 255, 0.22);
-    }
-    .lightbox-close {
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
+
+    @media (max-width: 860px){
+      .card-inner{ grid-template-columns: 1fr; }
+      .card-media{ border-right: none; border-bottom: 1px solid var(--border); }
+      .hero img{ height: 360px; }
+      .footer{ grid-template-columns: 1fr; }
+      .card-title-row{ align-items: flex-start; }
     }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Public research archive</p>
+      <h1>Ron English Archive</h1>
+      <p class="sub">
+        A public, evolving scholarly record of paintings, works on paper, and archival documentation of exhibitions, murals, and public works.
+      </p>
+    </header>
 
-  <header class="site-header">
-    <h1>Cowgirl Hat</h1>
-
-    <nav class="top-nav">
-      <a class="nav-pill" href="../../index.html">Home</a>
-      <a class="nav-pill" href="./index.html">Warholesque</a>
-    </nav>
-  </header>
-
-  <!-- HERO + METADATA -->
-  <main class="work-layout">
-
-    <img
-      src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-01a.jpg"
-      alt="Cowgirl Hat (Warholesque) – Variant 1"
-      class="work-hero"
-      loading="lazy"
-    />
-
-    <ul class="work-meta">
-      <li><strong>Title:</strong> Cowgirl Hat</li>
-      <li><strong>Date:</strong> <!-- ADD YEAR OR RANGE --></li>
-      <li><strong>Medium:</strong> Silkscreen ink, stencil, and synthetic polymer paint on canvas</li>
-      <li><strong>Dimensions:</strong> <!-- ADD DIMENSIONS --></li>
-      <li>
-        <strong>Work ID:</strong>
-        Each variant assigned a unique catalogue number
-        (<!-- ADD RANGE IF KNOWN -->)
-      </li>
-      <li><strong>Notes:</strong> 15 unique colorway variants documented.</li>
-    </ul>
-
-  </main>
-
-  <!-- VARIANTS -->
-  <section class="variant-wrap">
-    <h2 style="text-align:center; margin: 0 0 18px 0;">Variants</h2>
-
-    <div class="variant-grid" aria-label="Cowgirl Hat variants">
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-01a.jpg" data-title="Variant 1">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-01a.jpg" alt="Cowgirl Hat – Variant 1" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 1</p>
+    <!-- HERO IMAGE -->
+    <section class="hero" aria-label="Featured image">
+      <img src="hero.jpg" alt="Ron English, Delusionville Manifesto">
+      <div class="hero-overlay"></div>
+      <div class="hero-caption">
+        <strong>Explore the archive</strong>
+        <span>Catalogue raisonné and a structured archive of exhibitions, murals, and public works</span>
       </div>
+    </section>
 
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-02a.jpg" data-title="Variant 2">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-02a.jpg" alt="Cowgirl Hat – Variant 2" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 2</p>
-      </div>
+    <section class="grid" aria-label="Archive sections">
 
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-03a.jpg" data-title="Variant 3">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-03a.jpg" alt="Cowgirl Hat – Variant 3" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 3</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-04a.jpg" data-title="Variant 4">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-04a.jpg" alt="Cowgirl Hat – Variant 4" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 4</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-05a.jpg" data-title="Variant 5">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-05a.jpg" alt="Cowgirl Hat – Variant 5" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 5</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-06a.jpg" data-title="Variant 6">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-06a.jpg" alt="Cowgirl Hat – Variant 6" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 6</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-07a.jpg" data-title="Variant 7">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-07a.jpg" alt="Cowgirl Hat – Variant 7" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 7</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-08a.jpg" data-title="Variant 8">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-08a.jpg" alt="Cowgirl Hat – Variant 8" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 8</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-09a.jpg" data-title="Variant 9">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-09a.jpg" alt="Cowgirl Hat – Variant 9" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 9</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-10a.jpg" data-title="Variant 10">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-10a.jpg" alt="Cowgirl Hat – Variant 10" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 10</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-11a.jpg" data-title="Variant 11">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-11a.jpg" alt="Cowgirl Hat – Variant 11" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 11</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-12a.jpg" data-title="Variant 12">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-12a.jpg" alt="Cowgirl Hat – Variant 12" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 12</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-13a.jpg" data-title="Variant 13">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-13a.jpg" alt="Cowgirl Hat – Variant 13" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 13</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-14a.jpg" data-title="Variant 14">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-14a.jpg" alt="Cowgirl Hat – Variant 14" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 14</p>
-      </div>
-
-      <div class="variant-item">
-        <a class="variant-link" href="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-15a.jpg" data-title="Variant 15">
-          <img src="../../images/Paintings/Warholesque/Warholesque-Cowgirl-Hat-var-15a.jpg" alt="Cowgirl Hat – Variant 15" loading="lazy" />
-        </a>
-        <p class="variant-title">Variant 15</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Lightbox UI -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-card" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <img class="lightbox-img" id="lightboxImg" alt="">
-      <div class="lightbox-bar">
-        <div id="lightboxTitle"></div>
-        <div class="lightbox-actions">
-          <a id="lightboxOpen" href="#" target="_blank" rel="noopener">Open original</a>
-          <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+      <!-- CATALOGUE RAISONNÉ -->
+      <a class="card" href="https://ronenglish-archive.github.io/ron-english-catalogue-raisonne/">
+        <div class="card-inner">
+          <div class="card-media">
+            <div class="catalog-grid">
+              <img src="catalog-early.jpg" alt="Early work">
+              <img src="catalog-pop.jpg" alt="Pop painting">
+              <img src="catalog-concept.jpg" alt="Conceptual work">
+              <img src="catalog-paper.jpg" alt="Work on paper">
+            </div>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h2 class="card-title">Catalogue Raisonné</h2>
+                <span class="badge">Actively Expanding</span>
+              </div>
+              <p class="card-desc">
+                A structured, citation-ready record of paintings and works on paper. New entries and verified documentation are added on a rolling basis.
+              </p>
+            </div>
+            <div class="cta">
+              <span class="arrow">→</span>
+              <span>Enter the catalogue</span>
+            </div>
+          </div>
         </div>
+      </a>
+
+      <!-- POPAGANDA ARCHIVE (IN DEVELOPMENT) -->
+      <a class="card" href="popaganda-archive.html">
+        <div class="card-inner">
+          <div class="card-media">
+            <img src="popaganda.jpg" alt="Ron English murals and public works" />
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h2 class="card-title">PoPaganda Archive</h2>
+                <span class="badge">In Development</span>
+              </div>
+              <p class="card-desc">
+                A comprehensive archive of exhibitions, murals, public interventions, collaborations, and related ephemera,
+                documenting the broader cultural footprint of Ron English’s PoPaganda practice.
+              </p>
+            </div>
+            <div class="cta">
+              <span class="arrow">→</span>
+              <span>About the archive · Target launch: June 2027</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </section>
+
+    <div class="footer">
+      <div>
+        Maintained in the <a href="https://github.com/ronenglish-archive">ronenglish-archive</a> organization.
+        Entries are published as documentation is verified and organized for reliable citation.
+      </div>
+      <div>
+        Published via GitHub Pages for public access. Updates are released on a rolling basis as new material is processed.
       </div>
     </div>
   </div>
-
-  <script>
-    (function () {
-      const lb = document.getElementById("lightbox");
-      const lbImg = document.getElementById("lightboxImg");
-      const lbTitle = document.getElementById("lightboxTitle");
-      const lbOpen = document.getElementById("lightboxOpen");
-      const lbClose = document.getElementById("lightboxClose");
-
-      function openLightbox(src, title, alt) {
-        lb.classList.add("is-open");
-        lb.setAttribute("aria-hidden", "false");
-        lbImg.src = src;
-        lbImg.alt = alt || title || "Image";
-        lbTitle.textContent = title || "";
-        lbOpen.href = src;
-        document.body.style.overflow = "hidden";
-        lbClose.focus();
-      }
-
-      function closeLightbox() {
-        lb.classList.remove("is-open");
-        lb.setAttribute("aria-hidden", "true");
-        lbImg.src = "";
-        document.body.style.overflow = "";
-      }
-
-      document.addEventListener("click", (e) => {
-        const link = e.target.closest(".variant-link");
-        if (link) {
-          e.preventDefault();
-          openLightbox(link.href, link.dataset.title, link.querySelector("img")?.alt);
-          return;
-        }
-        if (e.target === lb) closeLightbox();
-      });
-
-      lbClose.addEventListener("click", closeLightbox);
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && lb.classList.contains("is-open")) closeLightbox();
-      });
-    })();
-  </script>
-
 </body>
 </html>
