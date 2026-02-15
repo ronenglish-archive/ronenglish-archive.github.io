@@ -12,14 +12,15 @@
     .pill {
       display: inline-flex; align-items: center; gap: .5rem;
       padding: .55rem .9rem; border: 1px solid #e5e7eb; border-radius: 999px;
-      text-decoration: none; color: inherit;
+      text-decoration: none; color: inherit; background: #fff;
     }
     .pill:hover { border-color: #cbd5e1; }
     h1 { margin: .25rem 0 0; font-size: 2rem; line-height: 1.2; }
     .subtitle { color: #475569; margin: .5rem 0 0; max-width: 70ch; }
+
     .card {
       border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.25rem;
-      margin-top: 1.5rem;
+      margin-top: 1.5rem; background: #fff;
     }
     .kicker { font-weight: 600; letter-spacing: .02em; text-transform: uppercase; font-size: .85rem; color: #334155; }
     ul { margin: .75rem 0 0 1.1rem; }
@@ -27,37 +28,35 @@
     .img {
       width: 100%; max-width: 980px; border-radius: 14px;
       margin-top: 1.25rem; border: 1px solid #e5e7eb;
+      display: block;
     }
 
-    /* Submission CTA */
-    .cta {
+    /* Contribute CTA */
+    .cta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       align-items: center;
       justify-content: space-between;
-      margin-top: .75rem;
+      margin-top: 12px;
     }
     .btn {
-      display: inline-block;
-      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
       border-radius: 999px;
-      background: #111;
-      color: #fff;
+      border: 1px solid #e5e7eb;
       text-decoration: none;
-      font-weight: 650;
-      border: 1px solid #111;
+      color: #0f172a;
+      font-weight: 600;
+      background: #fff;
       white-space: nowrap;
     }
-    .btn:hover { background: #000; border-color: #000; }
-    .btn.secondary {
-      background: transparent;
-      color: #111;
-      border-color: #cbd5e1;
-    }
-    .btn.secondary:hover { border-color: #94a3b8; }
-    .small { font-size: .92rem; color: #475569; margin: .4rem 0 0; }
-    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .btn:hover { border-color: #cbd5e1; }
+    .btn:focus { outline: 2px solid #111; outline-offset: 3px; }
+    .small { font-size: .9rem; color: #64748b; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
   </style>
 </head>
 
@@ -110,27 +109,28 @@
       </p>
     </section>
 
-    <section class="card" aria-labelledby="contact">
-      <div id="contact" class="kicker">Contribute documentation</div>
+    <section class="card" aria-labelledby="contribute">
+      <div id="contribute" class="kicker">Contribute documentation</div>
       <p class="note">
         If you have documentation that strengthens a record (date/location confirmations, installation photos, printed materials,
         press clippings, or archival scans), you can submit it for review. Submissions are reviewed prior to inclusion in the archive.
       </p>
 
-      <div class="cta">
+      <div class="cta-row">
         <a class="btn"
            href="https://docs.google.com/forms/d/e/1FAIpQLSephCTyQksaXN-UPNXpbEHqz5uFEBpeDrAuSaeY3vuBcDdHcg/viewform"
            target="_blank" rel="noopener">
-          Submit Documentation
+          Submit documentation
         </a>
 
-        <a class="btn secondary" href="#scope">
-          View Scope
-        </a>
+        <div class="small">
+          Opens Google Forms in a new tab.
+        </div>
       </div>
 
-      <p class="small">
-        Note: file uploads require Google sign-in. If you prefer not to sign in, you can submit a reference URL and description without files.
+      <p class="small" style="margin-top:10px;">
+        If the button doesn’t work, copy/paste this URL:
+        <span class="mono">https://docs.google.com/forms/d/e/1FAIpQLSephCTyQksaXN-UPNXpbEHqz5uFEBpeDrAuSaeY3vuBcDdHcg/viewform</span>
       </p>
     </section>
   </main>
