@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PoPaganda Archive – About & Scope</title>
 
-  <!-- If your global stylesheet lives elsewhere, add it here.
-       If you currently rely on inline styles only, this page will still look fine. -->
-  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
-
   <style>
     body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
@@ -32,6 +28,36 @@
       width: 100%; max-width: 980px; border-radius: 14px;
       margin-top: 1.25rem; border: 1px solid #e5e7eb;
     }
+
+    /* Submission CTA */
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: .75rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 650;
+      border: 1px solid #111;
+      white-space: nowrap;
+    }
+    .btn:hover { background: #000; border-color: #000; }
+    .btn.secondary {
+      background: transparent;
+      color: #111;
+      border-color: #cbd5e1;
+    }
+    .btn.secondary:hover { border-color: #94a3b8; }
+    .small { font-size: .92rem; color: #475569; margin: .4rem 0 0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
   </style>
 </head>
 
@@ -85,10 +111,26 @@
     </section>
 
     <section class="card" aria-labelledby="contact">
-      <div id="contact" class="kicker">Notes</div>
+      <div id="contact" class="kicker">Contribute documentation</div>
       <p class="note">
-        If you have documentation that strengthens a record (date/location confirmations, installation photos, printed materials),
-        it can be incorporated with credit where appropriate.
+        If you have documentation that strengthens a record (date/location confirmations, installation photos, printed materials,
+        press clippings, or archival scans), you can submit it for review. Submissions are reviewed prior to inclusion in the archive.
+      </p>
+
+      <div class="cta">
+        <a class="btn"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSephCTyQksaXN-UPNXpbEHqz5uFEBpeDrAuSaeY3vuBcDdHcg/viewform"
+           target="_blank" rel="noopener">
+          Submit Documentation
+        </a>
+
+        <a class="btn secondary" href="#scope">
+          View Scope
+        </a>
+      </div>
+
+      <p class="small">
+        Note: file uploads require Google sign-in. If you prefer not to sign in, you can submit a reference URL and description without files.
       </p>
     </section>
   </main>
