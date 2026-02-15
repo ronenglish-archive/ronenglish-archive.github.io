@@ -20,7 +20,7 @@
 
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:var(--bg);
       line-height:1.35;
@@ -73,7 +73,6 @@
       height: min(52vh, 540px);
       object-fit: cover;
       display: block;
-      filter: contrast(1.02);
     }
 
     .hero-overlay{
@@ -97,7 +96,6 @@
 
     .hero-caption strong{
       font-size: 18px;
-      letter-spacing: .01em;
     }
 
     .hero-caption span{
@@ -134,7 +132,6 @@
     .card-inner{
       display: grid;
       grid-template-columns: 1.15fr 1fr;
-      gap: 0;
       min-height: 240px;
     }
 
@@ -151,27 +148,23 @@
     }
 
     .card-body{
-      padding: 20px 20px 18px;
+      padding: 20px;
       display:flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 14px;
     }
 
     .card-title{
       font-size: 24px;
       margin: 0 0 8px;
-      letter-spacing: -0.01em;
     }
 
     .card-desc{
       margin: 0;
       color: var(--muted);
       font-size: 17px;
-      max-width: 60ch;
     }
 
-    /* title row to host badge */
     .card-title-row{
       display:flex;
       align-items: center;
@@ -180,29 +173,24 @@
     }
 
     .badge{
-      display:inline-block;
       font-size: 12px;
       padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid #ddd;
       background: #fff;
-      color: #111;
       white-space: nowrap;
     }
 
-    /* CTA */
     .cta{
       display:flex;
       align-items:center;
       gap: 12px;
       font-weight: 800;
-      letter-spacing: .01em;
       margin-top: 14px;
       font-size: 18px;
     }
 
     .arrow{
-      display:inline-block;
       border: 1px solid var(--border);
       border-radius: 999px;
       width: 40px;
@@ -211,46 +199,6 @@
       text-align:center;
       font-size: 20px;
       background:#fff;
-    }
-
-    /* 2x2 image grid for catalogue card */
-    .catalog-grid{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 6px;
-      width: 100%;
-      height: 100%;
-      padding: 12px;
-    }
-
-    /* LANDSCAPE-FRIENDLY TILE CROPS */
-    .catalog-grid img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;          /* fills tile */
-      object-position: center;    /* default framing */
-      display: block;
-      border-radius: 10px;
-    }
-
-    /* Optional: make the top row a bit taller (helps wide artworks read better) */
-    @media (min-width: 861px){
-      .catalog-grid{
-        grid-template-rows: 1.25fr 0.75fr;
-      }
-    }
-
-    /* Per-image framing: set focal point */
-    .catalog-grid img.focal-left{ object-position: left center; }
-    .catalog-grid img.focal-right{ object-position: right center; }
-    .catalog-grid img.focal-top{ object-position: center top; }
-    .catalog-grid img.focal-bottom{ object-position: center bottom; }
-
-    /* If you want LESS cropping for wide works, use "contain" + padding */
-    .catalog-grid img.contain{
-      object-fit: contain;
-      background: #f3f4f6;
     }
 
     /* FOOTER */
@@ -263,15 +211,18 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px 24px;
-      align-items: start;
     }
 
-    .footer > div{
-      min-width: 0;
+    .footer small{
+      display:block;
+      margin-top: 10px;
+      font-size: 13px;
     }
 
     .footer a{
       color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     @media (max-width: 860px){
@@ -279,7 +230,6 @@
       .card-media{ border-right: none; border-bottom: 1px solid var(--border); }
       .hero img{ height: 360px; }
       .footer{ grid-template-columns: 1fr; }
-      .card-title-row{ align-items: flex-start; }
     }
   </style>
 </head>
@@ -294,29 +244,21 @@
       </p>
     </header>
 
-    <!-- HERO IMAGE -->
-    <section class="hero" aria-label="Featured image">
+    <section class="hero">
       <img src="hero.jpg" alt="Ron English, Delusionville Manifesto">
       <div class="hero-overlay"></div>
       <div class="hero-caption">
         <strong>Explore the archive</strong>
-        <span>Catalogue raisonné and a structured archive of exhibitions, murals, and public works</span>
+        <span>Catalogue raisonné and structured documentation</span>
       </div>
     </section>
 
-    <section class="grid" aria-label="Archive sections">
+    <section class="grid">
 
-      <!-- CATALOGUE RAISONNÉ -->
       <a class="card" href="https://ronenglish-archive.github.io/ron-english-catalogue-raisonne/">
         <div class="card-inner">
           <div class="card-media">
-            <div class="catalog-grid">
-              <!-- If Cowgirl Guernica tiles are here, make them landscape-friendly: add contain or a focal class -->
-              <img src="catalog-early.jpg" alt="Early work" class="contain">
-              <img src="catalog-pop.jpg" alt="Pop painting" class="contain">
-              <img src="catalog-concept.jpg" alt="Conceptual work">
-              <img src="catalog-paper.jpg" alt="Work on paper">
-            </div>
+            <img src="catalog-pop.jpg" alt="Catalogue preview">
           </div>
           <div class="card-body">
             <div>
@@ -325,7 +267,7 @@
                 <span class="badge">Actively Expanding</span>
               </div>
               <p class="card-desc">
-                A structured, citation-ready record of paintings and works on paper. New entries and verified documentation are added on a rolling basis.
+                A structured, citation-ready record of paintings and works on paper.
               </p>
             </div>
             <div class="cta">
@@ -336,11 +278,10 @@
         </div>
       </a>
 
-      <!-- POPAGANDA ARCHIVE (IN DEVELOPMENT) -->
       <a class="card" href="popaganda-archive.html">
         <div class="card-inner">
           <div class="card-media">
-            <img src="popaganda.jpg" alt="Ron English murals and public works" />
+            <img src="popaganda.jpg" alt="PoPaganda archive preview">
           </div>
           <div class="card-body">
             <div>
@@ -349,13 +290,12 @@
                 <span class="badge">In Development</span>
               </div>
               <p class="card-desc">
-                A comprehensive archive of exhibitions, murals, public interventions, collaborations, and related ephemera,
-                documenting the broader cultural footprint of Ron English’s PoPaganda practice.
+                Exhibitions, murals, collaborations, and related ephemera documenting the broader cultural footprint.
               </p>
             </div>
             <div class="cta">
               <span class="arrow">→</span>
-              <span>About the archive · Target launch: June 2027</span>
+              <span>About the archive</span>
             </div>
           </div>
         </div>
@@ -367,9 +307,17 @@
       <div>
         Maintained in the <a href="https://github.com/ronenglish-archive">ronenglish-archive</a> organization.
         Entries are published as documentation is verified and organized for reliable citation.
+
+        <small>
+          Have documentation to share?
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSephCTyQksaXN-UPNXpbEHqz5uFEBpeDrAuSaeY3vuBcDdHcg/viewform" target="_blank" rel="noopener">
+            Submit archival material
+          </a>
+        </small>
       </div>
+
       <div>
-        Published via GitHub Pages for public access. Updates are released on a rolling basis as new material is processed.
+        Published via GitHub Pages for public access.
       </div>
     </div>
   </div>
