@@ -8,6 +8,7 @@
   <style>
     body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+
     .top { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin-bottom: 1.5rem; }
     .pill {
       display: inline-flex; align-items: center; gap: .5rem;
@@ -15,8 +16,23 @@
       text-decoration: none; color: inherit; background: #fff;
     }
     .pill:hover { border-color: #cbd5e1; }
+
+    /* Make target launch more obvious */
+    .pill-launch{
+      border-color: #cbd5e1;
+      background: #f8fafc;
+      font-weight: 700;
+    }
+    .pill-launch .dot{
+      width: .55rem; height: .55rem; border-radius: 999px;
+      background: #0f172a;
+      display: inline-block;
+    }
+
     h1 { margin: .25rem 0 0; font-size: 2rem; line-height: 1.2; }
-    .subtitle { color: #475569; margin: .5rem 0 0; max-width: 70ch; }
+
+    /* Full-width intro text (remove max-width cap) */
+    .subtitle { color: #475569; margin: .5rem 0 0; }
 
     .card {
       border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.25rem;
@@ -65,7 +81,12 @@
     <div class="top">
       <a class="pill" href="index.html">← Home</a>
       <span class="pill" aria-label="Status">Status: In Development</span>
-      <span class="pill" aria-label="Target launch">Target launch: June 2027</span>
+
+      <!-- More obvious launch indicator -->
+      <span class="pill pill-launch" aria-label="Target launch">
+        <span class="dot" aria-hidden="true"></span>
+        Target launch: June 2027
+      </span>
     </div>
 
     <h1>PoPaganda Archive</h1>
@@ -116,17 +137,17 @@
         press clippings, or archival scans), you can submit it for review. Submissions are reviewed prior to inclusion in the archive.
       </p>
 
-  <div class="cta-row">
-  <a class="btn"
-     href="https://docs.google.com/forms/d/e/1FAIpQLSephCTyQksaXN-UPNXpbEHqz5uFEBpeDrAuSaeY3vuBcDdHcg/viewform"
-     target="_blank" rel="noopener">
-    Submit documentation
-  </a>
+      <div class="cta-row">
+        <a class="btn"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSephCTyQksaXN-UPNXpbEHqz5uFEBpeDrAuSaeY3vuBcDdHcg/viewform"
+           target="_blank" rel="noopener">
+          Submit documentation
+        </a>
 
-  <span class="small">
-    Google Form
-  </span>
-</div>
+        <span class="small">
+          Google Form
+        </span>
+      </div>
     </section>
   </main>
 </body>
