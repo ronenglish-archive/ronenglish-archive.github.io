@@ -57,38 +57,6 @@
       margin: 0;
     }
 
-    /* INFO CALLOUT */
-    .notice{
-      margin-top: 16px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: #f9fafb;
-      box-shadow: var(--shadow);
-      padding: 14px 16px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 92ch;
-    }
-
-    .notice strong{
-      color: var(--text);
-      font-weight: 800;
-    }
-
-    .notice p{
-      margin: 8px 0 0;
-    }
-
-    .notice p:first-of-type{
-      margin-top: 0;
-    }
-
-    .notice a{
-      color: inherit;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
     /* HERO */
     .hero{
       margin-top: 22px;
@@ -197,6 +165,13 @@
       font-size: 17px;
     }
 
+    .card-meta{
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
     .card-title-row{
       display:flex;
       align-items: center;
@@ -274,21 +249,6 @@
       <p class="sub">
         A public, evolving scholarly record of paintings, works on paper, and archival documentation of exhibitions, murals, and public works.
       </p>
-
-      <div class="notice" role="note" aria-label="Catalogue status notice">
-        <p>
-          <strong>Catalogue status:</strong>
-          The catalogue raisonné is actively expanding. Some detail pages may be unavailable while documentation, images, and references are verified and finalized.
-          Some pages may also contain partial records while research is ongoing.
-        </p>
-        <p>
-          Dates, titles, dimensions, and other fields reflect the best available information at the time of publication and may be revised as additional documentation becomes available
-          (for example, when a work’s year is clarified or updated by stronger sources).
-        </p>
-        <p>
-          Images may be replaced with higher-resolution files when better source material becomes available.
-        </p>
-      </div>
     </header>
 
     <section class="hero">
@@ -316,7 +276,16 @@
               <p class="card-desc">
                 A structured, citation-ready record of paintings and works on paper.
               </p>
+
+              <div class="card-meta">
+                Entries are published as documentation is verified and organized.
+                Some detail pages may contain partial records while research is ongoing,
+                and certain pages may not yet be active.
+                Dates, titles, and related data reflect the best available information at the time of publication and may be revised as additional sources are confirmed.
+                Images may be replaced with higher-resolution files when improved source material becomes available.
+              </div>
             </div>
+
             <div class="cta">
               <span class="arrow">→</span>
               <span>Enter the catalogue</span>
