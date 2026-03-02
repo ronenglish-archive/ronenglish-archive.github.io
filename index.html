@@ -57,6 +57,38 @@
       margin: 0;
     }
 
+    /* INFO CALLOUT */
+    .notice{
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #f9fafb;
+      box-shadow: var(--shadow);
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 92ch;
+    }
+
+    .notice strong{
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .notice p{
+      margin: 8px 0 0;
+    }
+
+    .notice p:first-of-type{
+      margin-top: 0;
+    }
+
+    .notice a{
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     /* HERO */
     .hero{
       margin-top: 22px;
@@ -242,6 +274,21 @@
       <p class="sub">
         A public, evolving scholarly record of paintings, works on paper, and archival documentation of exhibitions, murals, and public works.
       </p>
+
+      <div class="notice" role="note" aria-label="Catalogue status notice">
+        <p>
+          <strong>Catalogue status:</strong>
+          The catalogue raisonné is actively expanding. Some detail pages may be unavailable while documentation, images, and references are verified and finalized.
+          Some pages may also contain partial records while research is ongoing.
+        </p>
+        <p>
+          Dates, titles, dimensions, and other fields reflect the best available information at the time of publication and may be revised as additional documentation becomes available
+          (for example, when a work’s year is clarified or updated by stronger sources).
+        </p>
+        <p>
+          Images may be replaced with higher-resolution files when better source material becomes available.
+        </p>
+      </div>
     </header>
 
     <section class="hero">
